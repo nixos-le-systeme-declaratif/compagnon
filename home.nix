@@ -27,5 +27,12 @@
     history.size = 50000;
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      clock-show-weekday = true;
+    };
+  };
+
   home.stateVersion = "26.05";
 }
