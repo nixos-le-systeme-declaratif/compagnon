@@ -7,6 +7,7 @@
     ./modules/utilisateurs.nix
     ./modules/outils.nix
     ./modules/acces-distant.nix
+    ./modules/web.nix
   ];
 
   # Le démarrage
