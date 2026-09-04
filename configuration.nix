@@ -25,6 +25,8 @@
   networking.hostName = "atelier";
   networking.networkmanager.enable = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # L'accès distant
   mon.accesDistant.enable = true;
 
