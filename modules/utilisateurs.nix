@@ -14,11 +14,5 @@
     description = "Camille";
     extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      ripgrep
-      fd
-      jq
-      tree
-    ];
   };
 }
