@@ -8,6 +8,7 @@
     ./modules/outils.nix
     ./modules/acces-distant.nix
     ./modules/web.nix
+    ./modules/base-de-donnees.nix
   ];
 
   # Le démarrage
