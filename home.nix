@@ -18,5 +18,14 @@
     };
   };
 
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -lh";
+      gs = "git status";
+    };
+    history.size = 50000;
+  };
+
   home.stateVersion = "26.05";
 }
