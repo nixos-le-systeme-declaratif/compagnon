@@ -13,6 +13,7 @@
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
+        { system.configurationRevision = self.rev or self.dirtyRev or null; }
       ];
     };
   };
