@@ -6,5 +6,15 @@
 
   config = lib.mkIf config.mon.accesDistant.enable {
     services.openssh.enable = true;
+
+    services.openssh.settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+    };
+
+    users.users.camille.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB1uEAp7DAKRTI8/iGooncgqgbZKO2VBZNmz0eEwogZ/ camille@atelier"
+    ];
   };
 }
