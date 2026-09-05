@@ -26,6 +26,7 @@
   networking.networkmanager.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.overlays = [ (import ./overlays/retouches.nix) ];
 
   # L'accès distant
   mon.accesDistant.enable = true;
