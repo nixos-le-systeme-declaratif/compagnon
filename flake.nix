@@ -7,14 +7,19 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }: {
-    nixosConfigurations.atelier = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager }:
+    let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    in {
+      packages.x86_64-linux.tomate = pkgs.callPackage ./paquets/tomate.nix { };
+
+      nixosConfigurations.atelier = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
         { system.configurationRevision = self.rev or self.dirtyRev or null; }
       ];
+      };
     };
-  };
 }
