@@ -2,16 +2,16 @@
 
 {
   home.packages = with pkgs; [
-    ripgrep
+    ripgrep   # le vôtre, sans que la ligne le dise
     fd
     jq
     tree
-  ] ++ [
-    (pkgs.callPackage ./paquets/tomate.nix { })
+    tomate    # citoyen de plein droit
   ];
 
   programs.git = {
     enable = true;
+    package = pkgs.git.override { withLibsecret = true; };
     settings = {
       user.name  = "Camille";
       user.email = "camille@exemple.org";
