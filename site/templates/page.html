@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} — {{ config.title }}</title>
+</head>
+<body>
+  <h1>{{ page.title }}</h1>
+  {{ page.content | safe }}
+  <p><a href="{{ config.base_url }}">← retour</a></p>
+</body>
+</html>
