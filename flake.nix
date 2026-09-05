@@ -9,9 +9,12 @@
 
   outputs = { self, nixpkgs, home-manager }:
     let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        overlays = [ (import ./overlays/retouches.nix) ];
+      };
     in {
-      packages.x86_64-linux.tomate = pkgs.callPackage ./paquets/tomate.nix { };
+      packages.x86_64-linux.tomate = pkgs.tomate;
       packages.x86_64-linux.mon-blog = pkgs.callPackage ./paquets/mon-blog.nix { };
 
       nixosConfigurations.atelier = nixpkgs.lib.nixosSystem {
