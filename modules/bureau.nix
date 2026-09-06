@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   services.xserver.enable = true;
 
@@ -12,5 +14,16 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
+  };
+
+  home-manager.users.camille = {
+    programs.git.package = pkgs.git.override { withLibsecret = true; };
+
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        clock-show-weekday = true;
+      };
+    };
   };
 }

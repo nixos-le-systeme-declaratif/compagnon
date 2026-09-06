@@ -11,7 +11,6 @@
 
   programs.git = {
     enable = true;
-    package = pkgs.git.override { withLibsecret = true; };
     settings = {
       user.name  = "Camille";
       user.email = "camille@exemple.org";
@@ -27,13 +26,6 @@
       gs = "git status";
     };
     history.size = 50000;
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      clock-show-weekday = true;
-    };
   };
 
   home.stateVersion = "26.05";

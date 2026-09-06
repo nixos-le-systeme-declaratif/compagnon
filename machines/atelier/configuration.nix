@@ -3,14 +3,15 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/localisation.nix
-    ./modules/utilisateurs.nix
-    ./modules/outils.nix
-    ./modules/acces-distant.nix
-    ./modules/web.nix
-    ./modules/base-de-donnees.nix
-    ./modules/bureau.nix
-    ./modules/machine-virtuelle.nix
+    ../../modules/socle.nix
+    ../../modules/localisation.nix
+    ../../modules/utilisateurs.nix
+    ../../modules/outils.nix
+    ../../modules/acces-distant.nix
+    ../../modules/web.nix
+    ../../modules/base-de-donnees.nix
+    ../../modules/bureau.nix
+    ../../modules/machine-virtuelle.nix
   ];
 
   # Le démarrage
@@ -25,9 +26,7 @@
   networking.hostName = "atelier";
   networking.networkmanager.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.overlays = [ (import ./overlays/retouches.nix) ];
-  sops.defaultSopsFile = ./secrets/atelier.yaml;
+  sops.defaultSopsFile = ../../secrets/atelier.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   # L'accès distant
