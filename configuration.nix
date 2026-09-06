@@ -27,6 +27,8 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.overlays = [ (import ./overlays/retouches.nix) ];
+  sops.defaultSopsFile = ./secrets/atelier.yaml;
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   # L'accès distant
   mon.accesDistant.enable = true;

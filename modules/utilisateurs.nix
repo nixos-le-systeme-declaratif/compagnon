@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home-manager.useGlobalPkgs = true;
@@ -7,10 +7,14 @@
 
   programs.zsh.enable = true;
 
+  sops.secrets."camille/hashedPassword".neededForUsers = true;
+  users.mutableUsers = false;
+
   users.users.camille = {
     isNormalUser = true;
     description = "Camille";
     extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
+    hashedPasswordFile = config.sops.secrets."camille/hashedPassword".path;
   };
 }
