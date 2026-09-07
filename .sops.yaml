@@ -1,8 +1,12 @@
 keys:
   - &camille age1qc8phgdm9mdesp5qp7uf8qe5l2sum2jqk2puf4697y28mq6wwf7ssakt42
   - &atelier age14d5k4vvvm8zwuc4esptazvl6kxk3hm645ywcvlj36z809jwaadkqqrpwkl
+  - &vitrine age1le3fwanl9gpe4dddd3gwt2wh9th3nghn544f7zpg5efq7df2nvpq6j0kwx
 
 creation_rules:
-  - path_regex: secrets/.*\.yaml$
+  - path_regex: secrets/atelier\.yaml$
     key_groups:
       - age: [ *camille, *atelier ]
+  - path_regex: secrets/vitrine\.yaml$
+    key_groups:
+      - age: [ *camille, *vitrine ]
