@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    site.url = "git+ssh://forgejo@forge/camille/carnet.git";
+    site.url = "git+https://forge/camille/carnet.git";
     site.flake = false;
   };
 
