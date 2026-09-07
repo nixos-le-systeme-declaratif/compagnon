@@ -4,6 +4,12 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.overlays = [ (import ../overlays/retouches.nix) ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   sops.secrets."forge/jeton" = {
     mode = "0440";
     group = "wheel";          # le démon (root) et les admins de la machine
