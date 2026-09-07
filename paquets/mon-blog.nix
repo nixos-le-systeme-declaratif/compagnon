@@ -1,10 +1,10 @@
-{ stdenv, zola }:
+{ stdenv, zola, src }:
 
 stdenv.mkDerivation {
   pname = "mon-blog";
   version = "1.0";
 
-  src = ../site;   # pas de fetcher : un chemin du dépôt suffit
+  inherit src;
 
   nativeBuildInputs = [ zola ];
 

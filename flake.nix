@@ -7,9 +7,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    site.url = "git+ssh://forgejo@forge/camille/carnet.git";
+    site.flake = false;
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix }:
+  outputs = { self, nixpkgs, home-manager, sops-nix, site }:
     let
       pkgs = import nixpkgs {
         system = "x86_64-linux";
@@ -17,7 +19,7 @@
       };
     in {
       packages.x86_64-linux.tomate = pkgs.tomate;
-      packages.x86_64-linux.mon-blog = pkgs.callPackage ./paquets/mon-blog.nix { };
+      packages.x86_64-linux.mon-blog = pkgs.callPackage ./paquets/mon-blog.nix { src = site; };
 
       nixosConfigurations.atelier = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
