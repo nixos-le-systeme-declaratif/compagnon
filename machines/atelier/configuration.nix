@@ -12,6 +12,7 @@
     ../../modules/base-de-donnees.nix
     ../../modules/bureau.nix
     ../../modules/machine-virtuelle.nix
+    ../../modules/certificats.nix
   ];
 
   # Le démarrage

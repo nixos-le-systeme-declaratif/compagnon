@@ -9,6 +9,7 @@
     ../../modules/web.nix
     ../../modules/base-de-donnees.nix
     ../../modules/forge.nix
+    ../../modules/certificats.nix
   ];
 
   networking.hostName = "vitrine";
