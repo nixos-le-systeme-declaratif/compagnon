@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ git vim curl htop ];
+  environment.systemPackages = with pkgs; [ git vim curl htop ncdu ];
 }
