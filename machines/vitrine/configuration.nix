@@ -8,10 +8,12 @@
     ../../modules/acces-distant.nix
     ../../modules/web.nix
     ../../modules/base-de-donnees.nix
+    ../../modules/forge.nix
   ];
 
   networking.hostName = "vitrine";
   networking.hosts."192.168.122.33" = [ "atelier" ];
+  networking.hosts."127.0.0.1" = [ "forge" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

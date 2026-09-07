@@ -25,7 +25,7 @@
   # L'identité
   networking.hostName = "atelier";
   networking.networkmanager.enable = true;
-  networking.hosts."192.168.122.97" = [ "vitrine" ];
+  networking.hosts."192.168.122.97" = [ "vitrine" "forge" ];
 
   sops.defaultSopsFile = ../../secrets/atelier.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
