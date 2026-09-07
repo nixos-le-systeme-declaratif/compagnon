@@ -9,6 +9,7 @@
 
     services.nginx.virtualHosts."localhost" = {
       root = "/srv/www";
+      default = true;
     };
 
     networking.firewall.allowedTCPPorts =
