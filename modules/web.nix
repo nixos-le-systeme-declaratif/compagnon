@@ -8,7 +8,7 @@
     services.nginx.enable = true;
 
     services.nginx.virtualHosts."localhost" = {
-      root = "/srv/www";
+      root = lib.mkDefault "/srv/www";
       default = true;
     };
 

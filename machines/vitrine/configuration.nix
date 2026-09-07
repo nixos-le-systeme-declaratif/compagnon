@@ -1,3 +1,5 @@
+{ mon-blog, ... }:
+
 {
   imports = [
     ./hardware-configuration.nix        # n'existe pas encore — le corps le fournira
@@ -27,6 +29,9 @@
   mon.accesDistant.enable = true;
   mon.web.accesReseau = true;
   mon.baseDeDonnees.accesReseau = true;
+
+  services.nginx.virtualHosts."localhost".root =
+    "${mon-blog}";
 
   sops.defaultSopsFile = ../../secrets/vitrine.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

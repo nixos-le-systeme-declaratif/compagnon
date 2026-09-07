@@ -31,6 +31,7 @@
         ];
       };
       nixosConfigurations.vitrine = nixpkgs.lib.nixosSystem {
+        specialArgs = { mon-blog = self.packages.x86_64-linux.mon-blog; };
         system = "x86_64-linux";
         modules = [
           ./machines/vitrine/configuration.nix
