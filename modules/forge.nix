@@ -27,4 +27,6 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];   # 80 ne sert plus qu'à rediriger
+
+  environment.systemPackages = [ config.services.forgejo.package ];
 }
