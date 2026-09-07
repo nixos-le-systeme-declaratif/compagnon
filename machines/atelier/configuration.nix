@@ -30,6 +30,10 @@
 
   sops.defaultSopsFile = ../../secrets/atelier.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  sops.secrets."nix/cle-signature" = { };
+
+  nix.settings.secret-key-files =
+    [ config.sops.secrets."nix/cle-signature".path ];
 
   # L'accès distant
   mon.accesDistant.enable = true;
