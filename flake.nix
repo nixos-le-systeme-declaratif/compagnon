@@ -52,5 +52,15 @@
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
         ];
       };
+      nixosConfigurations.granit = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machines/granit/configuration.nix
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          { system.configurationRevision = self.rev or self.dirtyRev or null; }
+        ];
+      };
     };
 }
