@@ -7,6 +7,7 @@
     jq
     tree
     tomate    # citoyen de plein droit
+    sentinelle
   ];
 
   programs.git = {

@@ -35,4 +35,7 @@ final: prev: {
       hash = "sha256-AqizStE9ICd6mNDZWdeXg6dHuTiY+B0TNauQQYWUa84=";
     };
   });
+
+  # sentinelle, le binaire de l'éditeur — réparé à la construction
+  sentinelle = final.callPackage ../paquets/sentinelle.nix { };
 }
