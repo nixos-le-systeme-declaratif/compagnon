@@ -1,8 +1,9 @@
-{ config, mon-blog, ... }:
+{ config, mon-blog, modulesPath, ... }:
 
 {
   imports = [
-    ./hardware-configuration.nix        # n'existe pas encore — le corps le fournira
+    (modulesPath + "/profiles/qemu-guest.nix")
+    ./disques.nix
     ../../modules/socle.nix
     ../../modules/localisation.nix
     ../../modules/utilisateurs.nix
@@ -20,11 +21,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  swapDevices = [{
-    device = "/dev/disk/by-partlabel/swap";  # elle non plus — le corps la creusera
-    randomEncryption.enable = true;
-  }];
 
   mon.accesDistant.enable = true;
   mon.web.accesReseau = true;
