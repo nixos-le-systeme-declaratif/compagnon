@@ -15,7 +15,6 @@
 
     users.users.camille.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB1uEAp7DAKRTI8/iGooncgqgbZKO2VBZNmz0eEwogZ/ camille@atelier"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB7fq12KURubK0FIcTKk4YLYXpiw+pExbXSATPxe/cVm camille@vitrine"
     ];
     # la clé de VOTRE atelier : nix key generate-secret en tire une paire unique
     nix.settings.trusted-public-keys =
