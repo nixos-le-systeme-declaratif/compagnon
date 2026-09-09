@@ -36,6 +36,28 @@
   nix.settings.secret-key-files =
     [ config.sops.secrets."nix/cle-signature".path ];
 
+  sops.secrets."sauvegarde/mot-de-passe" = { };
+  sops.secrets."sauvegarde/cle-ssh" = { };
+
+  programs.ssh.knownHosts."granit".publicKey =
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGyb7wUGcg7RDKew2JHhgAKf1O1MI/vcVYUoDFggveBw";
+
+  services.restic.backups.quotidienne = {
+    repository = "sftp:sauvegarde@granit:atelier";
+    passwordFile = config.sops.secrets."sauvegarde/mot-de-passe".path;
+    extraOptions = [
+      "sftp.command='ssh sauvegarde@granit -i ${config.sops.secrets."sauvegarde/cle-ssh".path} -s sftp'"
+    ];
+    paths = [ "/home/camille" ];
+    exclude = [
+      "/home/camille/.ssh"
+      "/home/camille/.config/sops"
+      "/home/camille/.cache"
+    ];
+    timerConfig = { OnCalendar = "02:30"; };
+    initialize = true;
+  };
+
   # L'accès distant
   mon.accesDistant.enable = true;
 
