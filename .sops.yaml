@@ -3,7 +3,7 @@ keys:
   - &atelier age14d5k4vvvm8zwuc4esptazvl6kxk3hm645ywcvlj36z809jwaadkqqrpwkl
   - &vitrine age1le3fwanl9gpe4dddd3gwt2wh9th3nghn544f7zpg5efq7df2nvpq6j0kwx
   - &essai   age1d6vrkhaj5e7xpjmvfsfpkhsrqvtduyu5qv0z8rf0xklnpx55ks8sjzjjwc
-  - &granit  age1ywt2923uwmp87r44z3r6v5zekmexumepua8defyergv4h7u3ru3q3d6zuc
+  - &granit  age15us2ajgqdp5zm0d2w7yn6chpz463t0ge7f56gdwzkuvxyapaxccqts39am
 
 creation_rules:
   - path_regex: secrets/atelier\.yaml$
