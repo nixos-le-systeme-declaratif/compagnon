@@ -8,6 +8,7 @@
     tree
     tomate    # citoyen de plein droit
     sentinelle
+    fhs
   ];
 
   programs.git = {

@@ -38,4 +38,5 @@ final: prev: {
 
   # sentinelle, le binaire de l'éditeur — réparé à la construction
   sentinelle = final.callPackage ../paquets/sentinelle.nix { };
+  fhs = final.callPackage ../paquets/fhs.nix { };
 }
