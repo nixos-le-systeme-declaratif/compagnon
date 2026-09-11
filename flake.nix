@@ -63,5 +63,7 @@
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
         ];
       };
+
+      checks.x86_64-linux.web = pkgs.testers.runNixOSTest ./tests/web.nix;
     };
 }
