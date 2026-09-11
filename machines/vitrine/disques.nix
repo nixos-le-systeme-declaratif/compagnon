@@ -24,4 +24,8 @@
       };
     };
   };
+
+  image.modules.qemu-efi = {
+    disko.enableConfig = false;
+  };
 }
