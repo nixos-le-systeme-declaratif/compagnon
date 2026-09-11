@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -73,6 +73,14 @@
     openssl            # le TLS — sentinelle vous l'a réclamé
     zlib               # la compression — l'autre omniprésente
   ];
+
+  virtualisation.vmVariant = {
+    virtualisation.memorySize = 4096;
+    users.users.camille = {
+      hashedPasswordFile = lib.mkForce null;
+      password = "brouillon";
+    };
+  };
 
   system.stateVersion = "26.05";  # (déjà présent) — ne changera plus jamais — voir l'encadré
 }
