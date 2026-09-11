@@ -64,6 +64,11 @@
         ];
       };
 
+      nixosConfigurations.secours = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./machines/secours/configuration.nix ];
+      };
+
       checks.x86_64-linux = {
         web              = pkgs.testers.runNixOSTest ./tests/web.nix;
         web-acces-reseau = pkgs.testers.runNixOSTest ./tests/web-acces-reseau.nix;
