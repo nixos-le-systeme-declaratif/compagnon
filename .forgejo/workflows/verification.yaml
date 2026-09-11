@@ -1,0 +1,10 @@
+name: verification
+on: push
+
+jobs:
+  flake-check:
+    runs-on: nixos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - run: nix flake check
