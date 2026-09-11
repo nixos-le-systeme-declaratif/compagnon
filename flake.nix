@@ -64,6 +64,11 @@
         ];
       };
 
-      checks.x86_64-linux.web = pkgs.testers.runNixOSTest ./tests/web.nix;
+      checks.x86_64-linux = {
+        web              = pkgs.testers.runNixOSTest ./tests/web.nix;
+        web-acces-reseau = pkgs.testers.runNixOSTest ./tests/web-acces-reseau.nix;
+
+        vitrine-se-construit = self.nixosConfigurations.vitrine.config.system.build.toplevel;
+      };
     };
 }
