@@ -64,7 +64,10 @@
       hash = "sha256-BENV4JXHofLCd2NziZUkQ1gqQbtrdT35cD0sfmqGOSo=";
     };
     cmd = [ "forge" ];
-    extraOptions = [ "--add-host=forge:host-gateway" ];
+    extraOptions = [ "--add-host=forge:host-gateway" "--init" ];
+    volumes = [
+      "/etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro"
+    ];
   };
 
   system.stateVersion = "26.05";
