@@ -74,6 +74,8 @@
     zlib               # la compression — l'autre omniprésente
   ];
 
+  virtualisation.podman.enable = true;
+
   virtualisation.vmVariant = {
     virtualisation.memorySize = 4096;
     users.users.camille = {
