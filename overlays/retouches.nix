@@ -1,14 +1,7 @@
 final: prev: {
 
-  # le paquet maison entre dans pkgs — son correctif embarqué
-  tomate = (final.callPackage ../paquets/tomate.nix { }).overrideAttrs (ancien: {
-    patches = (ancien.patches or [ ]) ++ [
-      (final.fetchpatch {
-        url = "https://github.com/nixos-le-systeme-declaratif/tomate/commit/d53d0b0.patch";
-        hash = "sha256-hoKLiAmUP4XbkZrK4Q4SSYDXXENsJ2PXYQ+JPcHvrbk=";
-      })
-    ];
-  });
+  # le paquet maison entre dans pkgs
+  tomate = final.callPackage ../paquets/tomate.nix { };
 
   # htop, avancé d'une version
   htop = prev.htop.overrideAttrs (ancien: rec {
