@@ -4,6 +4,7 @@ keys:
   - &vitrine age1ccwkxzrng8wl0wj5t2677t5c2weme27cqvw63we0x4zht5kd23tqzh235y
   - &essai   age1d6vrkhaj5e7xpjmvfsfpkhsrqvtduyu5qv0z8rf0xklnpx55ks8sjzjjwc
   - &granit  age15us2ajgqdp5zm0d2w7yn6chpz463t0ge7f56gdwzkuvxyapaxccqts39am
+  - &jury    age1398rncg555t4t79pwuzwyj0zamk64wah79xq3gt0mnzfjxrrmf3sc7pf52
 
 creation_rules:
   - path_regex: secrets/atelier\.yaml$
@@ -18,3 +19,6 @@ creation_rules:
   - path_regex: secrets/granit\.yaml$
     key_groups:
       - age: [ *camille, *granit ]
+  - path_regex: secrets/jury\.yaml$
+    key_groups:
+      - age: [ *camille, *jury ]
