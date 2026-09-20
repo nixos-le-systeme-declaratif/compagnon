@@ -14,6 +14,7 @@
         HTTP_PORT = 3000;
       };
       service.DISABLE_REGISTRATION = true;   # forge privée : pas de guichet d'inscription
+      actions.DEFAULT_ACTIONS_URL = "https://forge";
     };
   };
 
