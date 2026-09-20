@@ -28,6 +28,7 @@
   networking.networkmanager.enable = true;
   networking.hosts."192.168.122.97" = [ "vitrine" "forge" ];
   networking.hosts."192.168.122.62" = [ "granit" ];
+  networking.hosts."192.168.122.98" = [ "jury" ];
 
   sops.defaultSopsFile = ../../secrets/atelier.yaml;
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

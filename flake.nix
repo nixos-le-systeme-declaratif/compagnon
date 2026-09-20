@@ -68,6 +68,16 @@
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
         ];
       };
+      nixosConfigurations.jury = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./machines/jury/configuration.nix
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          { system.configurationRevision = self.rev or self.dirtyRev or null; }
+        ];
+      };
 
       nixosConfigurations.secours = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
