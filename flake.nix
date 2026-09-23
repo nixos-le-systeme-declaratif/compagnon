@@ -11,9 +11,11 @@
     site.flake = false;
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    lanzaboote.url = "github:nix-community/lanzaboote/v1.1.0";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, site, disko }:
+  outputs = { self, nixpkgs, home-manager, sops-nix, site, disko, lanzaboote }:
     let
       pkgs = import nixpkgs {
         system = "x86_64-linux";
@@ -33,6 +35,7 @@
         modules = [
           ./machines/atelier/configuration.nix
           disko.nixosModules.disko
+          lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
