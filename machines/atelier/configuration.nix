@@ -12,7 +12,6 @@
     ../../modules/web.nix
     ../../modules/base-de-donnees.nix
     ../../modules/bureau.nix
-    ../../modules/machine-virtuelle.nix
     ../../modules/certificats.nix
   ];
 
@@ -80,6 +79,10 @@
   ];
 
   virtualisation.podman.enable = true;
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  users.users.camille.extraGroups = [ "libvirtd" ];
+  environment.sessionVariables.LIBVIRT_DEFAULT_URI = "qemu:///system";
 
   virtualisation.vmVariant = {
     virtualisation.memorySize = 4096;
