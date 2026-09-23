@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disques.nix
     ../../modules/socle.nix
     ../../modules/localisation.nix
     ../../modules/utilisateurs.nix
